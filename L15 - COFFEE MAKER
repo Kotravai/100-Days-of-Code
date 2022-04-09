@@ -1,0 +1,141 @@
+# TODO
+# TODO 1. Make 3 hot flavors. Diff - price, water, coffee
+# TODO 2. Coin operated
+# TODO 3. Print report / resources are sufficient to make it
+# TODO 4. Process coins - (Calculation of coin to fund for drink)
+# TODO 5. Make coffee = deduct resources, increase coins
+
+
+import math
+MENU = {
+    "espresso": {
+        "ingredients": {
+            "water": 50,
+            "coffee": 18,
+        },
+        "cost": 1.5,
+    },
+    "latte": {
+        "ingredients": {
+            "water": 200,
+            "milk": 150,
+            "coffee": 24,
+        },
+        "cost": 2.5,
+    },
+    "cappuccino": {
+        "ingredients": {
+            "water": 250,
+            "milk": 100,
+            "coffee": 24,
+        },
+        "cost": 3.0,
+    }
+}
+
+resources = {
+    "water": 300,
+    "milk": 200,
+    "coffee": 100,
+}
+
+
+def coin_collector():
+    """returns total from coins inserted"""
+    print("Please insert coins: ")
+    quarter = int(input("How many quarters? "))
+    dimes = int(input("How many dimes? "))
+    nickel = int(input("How many nickel? "))
+    penny = int(input("How many penny? "))
+    coins = quarter*0.25 + nickel*0.1 + dimes*0.05 + penny*0.01
+    return coins
+
+
+def take_order():
+    """Takes order for espresso / latte / cappuccino"""
+    order_item = str(input("What would you like to have? (Espresso / Latte / Cappuccino) : ")).lower()
+    if order_item == 'report':
+        print(resources)
+        take_order()
+    elif order_item == 'off':
+        return 'off'
+    elif order_item in MENU:
+        order = MENU [order_item]
+        return order
+    else:
+        print("Invalid Entry. Try again")
+        take_order()
+
+
+def ingredient_check (requested_item):
+
+    # MENU2 = MENU.copy()
+    # resources2 = resources.copy()
+    # resources2["water"] -= requested_item["ingredients"]["water"]
+    # resources2["milk"] -= requested_item["ingredients"]["milk"]
+    # resources2["coffee"] -= requested_item["ingredients"]["coffee"]
+
+    for o in requested_item["ingredients"]:
+        if resources[o] >= requested_item["ingredients"][o]:
+            return False
+        else:
+            print ("Insufficient",o)
+            return True
+
+    # if resources2["water"] >=0 and resources2["milk"] >=0 and resources2["coffee"] >=0:
+    #     return False
+    # else:
+    #     return True
+
+
+def cost_transaction (cash , cost):
+    if cash > cost:
+        print(f"Here's the {round(cash-cost,2)} change")
+        return True
+    elif cash == cost:
+        return True
+    else:
+        print("Insufficient funds.")
+        return False
+
+
+machine_is_on = True
+while machine_is_on == True:
+    k = 0
+    resources["cost"] = 0
+
+    while k == 0:
+        order = take_order() #Dictionary of the order item
+        if order == 'off':
+            machine_is_on = False
+            break
+        if ingredient_check(order):
+            k = 0
+        else:
+            item_cost = order["cost"]
+            coin_inserted = coin_collector()
+            if cost_transaction(coin_inserted, item_cost):
+                k=1
+                resources["water"] -= order["ingredients"]["water"]
+                resources["milk"] -= order["ingredients"]["milk"]
+                resources["coffee"] -= order["ingredients"]["coffee"]
+                resources["cost"] += order["cost"]
+                print ("Enjoy! Here's the coffee you ordered! ")
+                machine_is_on = True
+        turn_off = str(input("Would you like to turn off the machine? Type 'Y' or 'N': ")).lower()
+        if turn_off == "y":
+            machine_is_on = False
+
+
+
+
+
+
+
+
+
+
+
+
+
+
