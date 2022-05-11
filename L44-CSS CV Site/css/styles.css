@@ -1,0 +1,134 @@
+body{
+    margin:0;
+    text-align:center;
+    font-family: 'Merriweather', serif;
+    }
+
+h1{
+    margin:75px auto 0 auto;
+    font-family: 'Sacramento', cursive;
+    font-size: 6rem;
+    color: #66BFBF;
+    line-height: 2;
+    }
+
+h2{
+    font-family: 'Montserrat', sans-serif;
+    color: #66BFBF;
+    font-size: 2.5rem;
+    font-weight: normal;
+    padding-bottom: 10px;
+}
+
+h3{
+    font-family: 'Montserrat', sans-serif;
+    color: #11999E;
+}
+
+.topContainer{
+   background-color: #EAF6F6;
+   margin-top:0;
+   padding:120px;
+}
+
+
+.topcloud {
+    position: relative;
+    left: 350px;
+    bottom: 30px;
+    }
+
+.cloud {
+    position: absolute;
+    left: 150px;
+    }
+
+
+hr{
+    background-color: #EAF6F6;
+    width: 5%;
+    border-style: dotted none none none;
+    border-color: grey;
+    border-width: 10px;
+}
+
+
+.middle-container{
+    padding: 30px;
+}
+
+.ownimg {
+    border-radius: 100%;
+}
+
+.intro{
+    width: 50%;
+    margin: auto;
+    padding-bottom: 50px;
+}
+
+.skill-row{
+    width: 50%;
+    margin: 100px auto 100px auto;
+    text-align: justify;
+    line-height: 2;
+}
+
+.programmer{
+    width: 25%;
+    float: left;
+    margin-right: 30px;
+}
+
+.traveller{
+    width: 25%;
+    float: right;
+    margin-left: 30px;
+}
+
+.contact-me{
+    margin: 50px auto;
+    line-height:2;
+    width:50%;
+}
+
+.btn{
+  -webkit-border-radius: 30;
+  -moz-border-radius: 10;
+  border-radius: 10px;
+  font-family: 'Montserrat', sans-serif;
+  color: white;
+  font-size: 20px;
+  background: #11999e;
+  padding: 10px 20px 10px 20px;
+  text-decoration: none;
+}
+
+.btn:hover {
+  background: #30e3cb;
+  background-image: -webkit-linear-gradient(top, #30e3cb, #2bc4ad);
+  background-image: -moz-linear-gradient(top, #30e3cb, #2bc4ad);
+  background-image: -ms-linear-gradient(top, #30e3cb, #2bc4ad);
+  background-image: -o-linear-gradient(top, #30e3cb, #2bc4ad);
+  background-image: linear-gradient(to bottom, #30e3cb, #2bc4ad);
+  text-decoration: none;
+}
+
+.bottom-container{
+    background-color: #66BFBF;
+    color: #EAF6F6;
+    margin-top:20;
+    padding:10px;
+}
+
+.footer-link{
+    color: #11999E;
+    padding: 40px;
+    margin-bottom: 60px;
+    line-height: 2;
+    text-decoration: none;
+}
+
+a:hover{
+    color: #EAF6F6;
+}

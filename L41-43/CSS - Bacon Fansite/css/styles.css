@@ -1,0 +1,19 @@
+/*======== TAG SELECTORS ============*/
+
+h1 {
+    color: blue;
+}
+
+body {background-color: aliceblue;}
+img:hover {background-color: yellow;}
+
+
+/*=========================CLASS SELECTORS===== multiple instances possible in same file /
+ multiple classes for same item is also possible========*/
+
+.bird{background-color: green;}
+.bacon{background-color: white;}
+
+/*============ID SELECTORS=======only one instance and one id possible in a file=======*/
+
+#heading {color: white;}
